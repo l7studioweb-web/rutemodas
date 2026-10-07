@@ -4,24 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rute Modas | Boutique Premium Bauru</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    },
-                    colors: {
-                        premiumBlack: '#0A0A0A',
-                        premiumGray: '#F5F5F7',
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Tailwind CSS (Carregamento Direto e Forçado) -->
+    <link href="https://jsdelivr.net" rel="stylesheet">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
@@ -29,55 +13,45 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0A0A0A; }
         .font-serif { font-family: 'Playfair Display', serif; }
-        /* Smooth fade para menu mobile */
         #mobile-menu { transition: opacity 0.3s ease, transform 0.3s ease; }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden">
 
     <!-- 1. HEADER -->
-    <header class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-black/5 tracking-widest uppercase text-xs">
+    <header class="fixed top-0 left-0 w-full bg-white bg-opacity-90 backdrop-filter backdrop-blur-md z-50 border-b border-black border-opacity-5 tracking-widest uppercase text-xs">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="#inicio" class="font-serif text-lg md:text-xl font-semibold tracking-[0.2em] hover:opacity-70 transition-opacity">
+            <a href="#inicio" class="font-serif text-lg font-semibold tracking-widest hover:opacity-70 transition-opacity">
                 RUTE MODAS
             </a>
-
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center space-x-8 text-black/60">
-                <a href="#inicio" class="hover:text-black transition-colors duration-300">Início</a>
-                <a href="#colecao" class="hover:text-black transition-colors duration-300">Coleção</a>
-                <a href="#beleza" class="hover:text-black transition-colors duration-300">Beleza</a>
-                <a href="#sobre" class="hover:text-black transition-colors duration-300">Sobre</a>
-                <a href="#contato" class="hover:text-black transition-colors duration-300">Contato</a>
+            <nav class="hidden md:flex items-center space-x-8 text-black text-opacity-60">
+                <a href="#inicio" class="hover:text-black transition-colors">Início</a>
+                <a href="#colecao" class="hover:text-black transition-colors">Coleção</a>
+                <a href="#beleza" class="hover:text-black transition-colors">Beleza</a>
+                <a href="#sobre" class="hover:text-black transition-colors">Sobre</a>
+                <a href="#contato" class="hover:text-black transition-colors">Contato</a>
             </nav>
-
-            <!-- Desktop CTA -->
             <div class="hidden md:block">
-                <a href="https://wa.me/5514996051760" target="_blank" class="border border-premiumBlack px-5 py-2.5 hover:bg-premiumBlack hover:text-white transition-all duration-300 text-[11px] font-medium tracking-[0.15em]">
+                <a href="https://wa.me" target="_blank" class="border border-black px-5 py-2.5 hover:bg-black hover:text-white transition-all text-xs font-medium">
                     Falar no WhatsApp
                 </a>
             </div>
-
-            <!-- Mobile Menu Button -->
             <button id="menu-btn" class="md:hidden p-2 focus:outline-none" aria-label="Abrir Menu">
                 <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M4 6h16M4 12h16M4 18h16"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
             </button>
         </div>
-
-        <!-- Mobile Dropdown Menu -->
-        <div id="mobile-menu" class="hidden fixed top-20 left-0 w-full h-[calc(100vh-5rem)] bg-white z-40 px-8 py-12 flex flex-col justify-between transform translate-y-[-10px] opacity-0">
-            <nav class="flex flex-col space-y-6 text-lg font-serif normal-case tracking-normal">
-                <a href="#inicio" class="mobile-link border-b border-black/5 pb-2">Início</a>
-                <a href="#colecao" class="mobile-link border-b border-black/5 pb-2">Coleção</a>
-                <a href="#beleza" class="mobile-link border-b border-black/5 pb-2">Beleza</a>
-                <a href="#sobre" class="mobile-link border-b border-black/5 pb-2">Sobre</a>
-                <a href="#contato" class="mobile-link border-b border-black/5 pb-2">Contato</a>
+        <div id="mobile-menu" class="hidden fixed top-20 left-0 w-full h-screen bg-white z-40 px-8 py-12 flex flex-col transform -translate-y-2 opacity-0">
+            <nav class="flex flex-col space-y-6 text-lg font-serif">
+                <a href="#inicio" class="mobile-link border-b border-black border-opacity-5 pb-2">Início</a>
+                <a href="#colecao" class="mobile-link border-b border-black border-opacity-5 pb-2">Coleção</a>
+                <a href="#beleza" class="mobile-link border-b border-black border-opacity-5 pb-2">Beleza</a>
+                <a href="#sobre" class="mobile-link border-b border-black border-opacity-5 pb-2">Sobre</a>
+                <a href="#contato" class="mobile-link border-b border-black border-opacity-5 pb-2">Contato</a>
             </nav>
-            <div class="mb-10">
-                <a href="https://wa.me/5514996051760" target="_blank" class="block w-full text-center bg-premiumBlack text-white py-4 text-xs font-medium tracking-[0.2em]">
+            <div class="mt-8">
+                <a href="https://wa.me" target="_blank" class="block w-full text-center bg-black text-white py-4 text-xs font-medium tracking-widest">
                     Falar no WhatsApp
                 </a>
             </div>
@@ -85,88 +59,106 @@
     </header>
 
     <!-- 2. HERO SECTION -->
-    <section id="inicio" class="relative min-h-[90vh] flex items-center pt-20 bg-premiumGray overflow-hidden">
+    <section id="inicio" class="relative min-h-screen flex items-center pt-20 bg-gray-50 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-center py-12">
-            <!-- Text Content -->
             <div class="md:col-span-6 z-10 order-2 md:order-1">
-                <span class="text-xs uppercase tracking-[0.3em] text-black/40 block mb-4">Boutique Autoral</span>
-                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-premiumBlack leading-[1.15] mb-6 tracking-tight">
+                <span class="text-xs uppercase tracking-widest text-black text-opacity-40 block mb-4">Boutique Autoral</span>
+                <h1 class="font-serif text-4xl md:text-6xl text-black leading-tight mb-6">
                     Moda que define seu estilo.
                 </h1>
-                <p class="text-black/60 font-light text-sm sm:text-base max-w-md mb-8 leading-relaxed">
+                <p class="text-black text-opacity-60 font-light text-sm md:text-base max-w-md mb-8 leading-relaxed">
                     Moda feminina, beleza e acessórios para completar o seu estilo.
                 </p>
-                <a href="#colecao" class="inline-flex items-center text-xs uppercase tracking-[0.2em] font-medium group">
-                    <span class="border-b border-premiumBlack pb-1 group-hover:pr-4 transition-all duration-300">Explorar coleção</span>
-                    <span class="transform translate-x-0 group-hover:translate-x-2 transition-transform duration-300 ml-2">→</span>
+                <a href="#colecao" class="inline-flex items-center text-xs uppercase tracking-widest font-medium border-b border-black pb-1 hover:pr-4 transition-all">
+                    <span>Explorar coleção</span>
+                    <span class="ml-2">→</span>
                 </a>
             </div>
-            <!-- Editorial Image Backdrop -->
-            <div class="md:col-span-6 order-1 md:order-2 relative h-[50vh] md:h-[75vh] w-full overflow-hidden grayscale bg-zinc-300">
+            <div class="md:col-span-6 order-1 md:order-2 h-64 md:h-[70vh] w-full overflow-hidden bg-gray-200">
                 <img src="https://unsplash.com" 
                      alt="Editorial Rute Modas" 
-                     class="w-full h-full object-cover object-center scale-105 hover:scale-100 transition-transform duration-700 ease-out">
+                     class="w-full h-full object-cover filter grayscale">
             </div>
         </div>
     </section>
 
-    <!-- 3. CATEGORIAS & 4. PRODUTOS (Layout Unificado) -->
-    <section id="colecao" class="py-24 md:py-32 max-w-7xl mx-auto px-6">
-        <div class="mb-16 md:mb-24">
-            <span class="text-xs uppercase tracking-[0.3em] text-black/40 block mb-2">Categorias</span>
-            <h2 class="font-serif text-3xl md:text-4xl text-premiumBlack">A Seleção</h2>
+    <!-- 3. CATEGORIAS & PRODUTOS -->
+    <section id="colecao" class="py-20 max-w-7xl mx-auto px-6">
+        <div class="mb-12">
+            <span class="text-xs uppercase tracking-widest text-black text-opacity-40 block mb-2">Categorias</span>
+            <h2 class="font-serif text-3xl text-black">A Seleção</h2>
         </div>
 
-        <!-- Grid Editorial Irregular -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-y-16 md:gap-x-12">
-            <!-- Categoria 1: Moda Feminina -->
-            <div class="md:col-span-7 group">
-                <div class="overflow-hidden grayscale mb-4 bg-zinc-100 aspect-[4/5]">
-                    <img src="https://unsplash.com" 
-                         alt="Moda Feminina" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="group">
+                <div class="overflow-hidden bg-gray-100 aspect-w-4 aspect-h-5 mb-4 h-96">
+                    <img src="https://unsplash.com" alt="Moda Feminina" class="w-full h-full object-cover filter grayscale">
                 </div>
-                <div class="flex justify-between items-baseline">
-                    <h3 class="font-serif text-xl text-premiumBlack">Moda Feminina</h3>
-                    <span class="text-xs text-black/40 uppercase tracking-widest">Ver peças</span>
-                </div>
+                <h3 class="font-serif text-xl">Moda Feminina</h3>
             </div>
-
-            <!-- Categoria 2: Perfumes -->
-            <div id="beleza" class="md:col-span-5 group md:mt-20">
-                <div class="overflow-hidden grayscale mb-4 bg-zinc-100 aspect-[3/4]">
-                    <img src="https://unsplash.com" 
-                         alt="Perfumes" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div id="beleza" class="group">
+                <div class="overflow-hidden bg-gray-100 aspect-w-4 aspect-h-5 mb-4 h-96">
+                    <img src="https://unsplash.com" alt="Perfumes" class="w-full h-full object-cover filter grayscale">
                 </div>
-                <div class="flex justify-between items-baseline">
-                    <h3 class="font-serif text-xl text-premiumBlack">Perfumes</h3>
-                    <span class="text-xs text-black/40 uppercase tracking-widest">Explorar</span>
-                </div>
+                <h3 class="font-serif text-xl">Perfumes</h3>
             </div>
-
-            <!-- Categoria 3: Cosméticos -->
-            <div class="md:col-span-5 group">
-                <div class="overflow-hidden grayscale mb-4 bg-zinc-100 aspect-[3/4]">
-                    <img src="https://unsplash.com" 
-                         alt="Cosméticos" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="group">
+                <div class="overflow-hidden bg-gray-100 aspect-w-4 aspect-h-5 mb-4 h-96">
+                    <img src="https://unsplash.com" alt="Cosméticos" class="w-full h-full object-cover filter grayscale">
                 </div>
-                <div class="flex justify-between items-baseline">
-                    <h3 class="font-serif text-xl text-premiumBlack">Cosméticos</h3>
-                    <span class="text-xs text-black/40 uppercase tracking-widest">Descobrir</span>
-                </div>
+                <h3 class="font-serif text-xl">Cosméticos</h3>
             </div>
-
-            <!-- Categoria 4: Acessórios -->
-            <div class="md:col-span-7 group md:-mt-20">
-                <div class="overflow-hidden grayscale mb-4 bg-zinc-100 aspect-[4/5]">
-                    <img src="https://unsplash.com" 
-                         alt="Acessórios" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="group">
+                <div class="overflow-hidden bg-gray-100 aspect-w-4 aspect-h-5 mb-4 h-96">
+                    <img src="https://unsplash.com" alt="Acessórios" class="w-full h-full object-cover filter grayscale">
                 </div>
-                <div class="flex justify-between items-baseline">
-                    <h3 class="font-serif text-xl text-premiumBlack">Acessórios</h3>
-                    <span class="text-xs text-black/40 uppercase tracking-widest">Olhar</span>
-  </div>
-  
+                <h3 class="font-serif text-xl">Acessórios</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SOBRE A RUTE MODAS -->
+    <section id="sobre" class="bg-black text-white py-24">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <span class="text-xs uppercase tracking-widest text-white text-opacity-40 block mb-6">A Essência</span>
+            <h2 class="font-serif text-3xl mb-6">Sobre a Rute Modas</h2>
+            <p class="font-serif italic text-xl text-white text-opacity-80 leading-relaxed">
+                "A Rute Modas reúne moda feminina, acessórios, perfumes e cosméticos em Bauru, oferecendo opções para quem busca estilo, beleza e novidades em um só lugar."
+            </p>
+        </div>
+    </section>
+
+    <!-- 7. CONTATO -->
+    <section id="contato" class="py-24 text-center bg-gray-50">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="font-serif text-3xl text-black mb-4">Vamos encontrar seu próximo estilo?</h2>
+            <p class="text-black text-opacity-50 text-sm mb-8">Entre em contato conosco para conhecer as últimas novidades.</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="https://wa.me" target="_blank" class="w-full sm:w-auto bg-black text-white px-8 py-4 text-xs uppercase tracking-widest font-medium transition-colors">
+                    Falar no WhatsApp
+                </a>
+                <a href="https://instagram.com" target="_blank" class="w-full sm:w-auto border border-black text-black px-8 py-4 text-xs uppercase tracking-widest font-medium transition-colors">
+                    Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FOOTER -->
+    <footer class="bg-white border-t border-black border-opacity-5 py-8 text-xs uppercase tracking-widest text-black text-opacity-40">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <span class="font-serif text-black font-semibold block mb-1">RUTE MODAS</span>
+                <span>Bauru - SP</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+                <a href="https://wa.me" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
